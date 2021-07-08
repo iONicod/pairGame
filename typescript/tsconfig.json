@@ -1,0 +1,11 @@
+{
+  "compileOnChange": true,
+  "compilerOptions": {
+    "target": "es6",
+    "module": "esnext",
+    "noEmitOnError": true,
+    "removeComments": true,
+    "outDir": "../js",
+    "alwaysStrict": true
+  }
+}

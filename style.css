@@ -1,0 +1,140 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', Geneva, sans-serif, arial, Tahoma, verdana;
+}
+
+.game-window-layout {
+    min-width: 900px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 30px;
+    display: grid;
+    grid-gap: 5%;
+    grid-template-columns: 1fr 3fr;
+}
+
+.popup-layout {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.4)  ;
+    z-index: 10;
+}
+
+.game-control-panel {
+    background-color: navajowhite;
+    border-radius: 30px;
+    padding: 20px 20px;
+}
+
+.game-info-wrapper {
+    padding: 30px 0;
+}
+
+.game-type,
+.game-title {
+    margin: 0 0 10px;
+    text-align: center;
+}
+
+.game-type {
+    font-size: 20px;
+    line-height: 30px;
+}
+
+.game-title {
+    font-size: 35px;
+    line-height: 40px;
+}
+
+.game-timer {
+    padding: 100px 30px;
+    text-align: center;
+    font-size: 70px;
+}
+
+.game-buttons-wrapper {
+    padding: 30px 30px;
+}
+
+.game-control-button {
+    display: block;
+    width: 100%;
+    padding: 15px 40px;
+    margin: 0 0 20px;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+}
+
+.game-hearts-wrapper {
+    padding: 20px 30px;
+}
+
+.game-field .heart {
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    margin: 0 15px;
+    background-image: url(img/heart.svg);
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.game-cards-field {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    padding: 0 30px 50px;
+}
+
+.cards-wrapper {
+    display: grid;
+    grid-gap: 30px;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.game-cards-field .card {
+    width: 150px;
+    height: 200px;
+    position: relative;
+    border-radius: 10px;
+    transform: perspective(500px);
+    overflow: hidden;
+}
+
+.game-cards-field .card-back,
+.game-cards-field .card-front {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.game-cards-field .card-back {
+    z-index: 1;
+    background-image: url("img/back.jpg");
+    background-size: 115%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.game-cards-field .card-front {
+    z-index: 0;
+    background-image: url("img/lion.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.card-flip {
+    transition: 0.8s;
+    transform: perspective(10000px) rotateY(180deg);
+}
+
+

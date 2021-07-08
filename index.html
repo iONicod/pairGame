@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Find a Pair</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="game-window">
+      <div class="popup-layout hidden">
+          <div class="popup"></div>
+      </div>
+      <div class="game-window-layout">
+          <div class="game-control-panel">
+              <div class="game-info-wrapper">
+                  <h3 class="game-type">Game</h3>
+                  <h2 class="game-title">Find a Pair</h2>
+              </div>
+              <div class="game-timer">00:30</div>
+              <div class="game-buttons-wrapper">
+                  <button class="game-control-button game-control-button--start hidden">Начать игру</button>
+                  <button class="game-control-button game-control-button--finish hidden">Сдаться</button>
+              </div>
+          </div>
+          <div class="game-field">
+              <div class="game-hearts-wrapper hidden">
+                  <div class="heart"></div>
+                  <div class="heart"></div>
+                  <div class="heart"></div>
+                  <div class="heart"></div>
+                  <div class="heart"></div>
+              </div>
+              <div class="game-cards-field">
+                  <div class="cards-wrapper hidden"></div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <script type="module" src="js/main.js"></script>
+
+</body>
+</html>
