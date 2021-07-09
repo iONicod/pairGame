@@ -30,55 +30,45 @@ class Card{
     }
 
     checkAndFlip() {
-        Game.setNewPickedCard(this);
-        if(this.state === State.closed) {
+        if(this.state === State.closed && !this.matched) {
+            Game.setNewPickedCard(this);
             this.flip();
         }
     }
 
     flip() {
-        let frontPart : HTMLElement = this.htmlElement.querySelector(".card-front");
-        let backPart : HTMLElement = this.htmlElement.querySelector(".card-back");
-
-        if (this.state === State.opened) {
-            frontPart.classList.toggle("card-flip");
-            backPart.classList.toggle("card-flip");
-
-        } else if (this.state === State.closed) {
-            frontPart.classList.toggle("card-flip");
-            backPart.classList.toggle("card-flip");
-        }
-        this.changeZIndexes(frontPart, backPart);
+        this.changeStatus();
+        this.htmlElement.classList.toggle("active");
     }
 
-    private changeZIndexes(frontPart : HTMLElement, backPart : HTMLElement) {
-        if (this.state === State.closed) {
+    changeStatus() {
+        if(this.state === State.closed) {
             this.state = State.opened;
-            frontPart.style.zIndex = Position.top;
-            backPart.style.zIndex = Position.bottom;
-        }
-        else if (this.state === State.opened) {
+        } else if (this.state === State.opened) {
             this.state = State.closed;
-            frontPart.style.zIndex = Position.bottom;
-            backPart.style.zIndex = Position.top;
         }
     }
 
     private generateHtmlElement() : HTMLElement{
         let divCardWrapper = document.createElement("div");
-        divCardWrapper.classList.add("card");
+        divCardWrapper.classList.add("flip-card");
         divCardWrapper.id = `${this.id}`;
 
-        let divCardBack = document.createElement("div");
-        divCardBack.classList.add("card-back");
-        let divCardFront = document.createElement("div");
-        divCardFront.classList.add("card-front");
+        let divCardInnerWrapper = document.createElement("div");
+        divCardInnerWrapper.classList.add("flip-card-inner");
 
+
+        let divCardFront = document.createElement("div");
+        divCardFront.classList.add("flip-card-front");
+
+        let divCardBack = document.createElement("div");
+        divCardBack.classList.add("flip-card-back");
 
         divCardFront.style.backgroundImage = this.imageFrontSrc;
 
-        divCardWrapper.appendChild(divCardBack);
-        divCardWrapper.appendChild(divCardFront);
+        divCardInnerWrapper.appendChild(divCardBack);
+        divCardInnerWrapper.appendChild(divCardFront);
+        divCardWrapper.appendChild(divCardInnerWrapper);
 
         return divCardWrapper;
     }
